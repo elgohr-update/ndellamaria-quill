@@ -2,10 +2,13 @@
  * primary (default pink): sidebar color, admitted dashboard status
  * secondary (default purple): header text, submitted/confirmed/checked-in dashboard status
  * tertiary (default blue): waitlist/declined dashboard status
+ * $primary: #222222;
+ * $secondary: #75AADB;
+ * $tertiary: #473899;
  */
 
-$primary: #222222;
-$secondary: #75AADB;
+$primary: #75AADB;
+$secondary: #222222;
 $tertiary: #473899;
 
 /** ASSET URLS
