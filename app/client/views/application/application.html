@@ -62,7 +62,8 @@
           <label>Current Education Level</label>
           <select
             name="educationLevel"
-            ng-model="user.profile.educationLevel">
+            ng-model="user.profile.educationLevel"
+            placeholder="Education Level">
             <option value="S">Secondary</option>
             <option value="T">Tertiary</option>
             <option value="V">Vocational</option>
@@ -72,7 +73,7 @@
         </div>
 
         <div class="field">
-          <label>School Attending/Attended. Enter 'None' or your company name if
+          <label>School Attending/Attended.Please enter 'None' or your company name if
               employed.</label>
           <input type="text"
                   name="school"
@@ -136,7 +137,7 @@
          
         <div class="field">
           <label>
-              What would you like to learn or get out of BothoHacks?
+              What would you like to learn or get out of BothoHacks? (required)
           </label>
           <textarea ng-model="user.profile.essay">
           </textarea>
