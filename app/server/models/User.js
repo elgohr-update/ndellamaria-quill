@@ -13,10 +13,23 @@ var profile = {
     max: 100,
   },
 
-  adult: {
-    type: Boolean,
-    required: true,
-    default: false,
+  age: Number;
+
+
+  gender: {
+    type: String,
+    enum : {
+      values: 'M F O N'.split(' ')
+    }
+  },
+
+  phoneNumber: String,
+
+  educationLevel: {
+    type: String;
+    enum : {
+      values: 'S T V N O'.split(' ')
+    }
   },
 
   school: {
@@ -28,7 +41,20 @@ var profile = {
   graduationYear: {
     type: String,
     enum: {
-      values: '2016 2017 2018 2019'.split(' '),
+      values: 'None pre-2020 2020 2021 2022 2023 2024 2025 2026 2027'.split(' '),
+    }
+  },
+
+  employment: {
+    type: String,
+    enum: {
+      values: [
+        "Employed",
+        "Looking for a job",
+        "Unemployed",
+        "Underemployed",
+        "Looking to start a company"
+      ]
     }
   },
 
@@ -38,20 +64,17 @@ var profile = {
     max: 300
   },
 
-  essay: {
+  languages: {
     type: String,
     min: 0,
     max: 1500
   },
 
-  // Optional info for demographics
-  gender: {
+  essay: {
     type: String,
-    enum : {
-      values: 'M F O N'.split(' ')
-    }
+    min: 0,
+    max: 1500
   },
-
 };
 
 // Only after confirmed
