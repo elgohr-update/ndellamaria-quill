@@ -26,7 +26,7 @@ var profile = {
   phoneNumber: String,
 
   educationLevel: {
-    type: String;
+    type: String,
     enum : {
       values: 'S T V N O'.split(' ')
     }
@@ -75,7 +75,7 @@ var profile = {
     min: 0,
     max: 1500
   },
-};
+},
 
 // Only after confirmed
 var confirmation = {
