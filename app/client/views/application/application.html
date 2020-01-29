@@ -79,6 +79,29 @@
         </div>
 
         <div class="field">
+            <label>
+              What programming languages/design software have you learned or
+              worked with? (required)
+            </label>
+            <input
+              type="text"
+              ng-model="user.profile.languages"
+              name="languages"
+            />
+          </div>
+
+          <div class="field">
+            <label>
+              Have you attended a hackathon before?
+            </label>
+            <select name="focus" ng-model="user.profile.firstTime">
+              <option value=""></option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+        <div class="field">
           <label>
               What would you like to learn or get out of BothoHacks? (optional)
           </label>
