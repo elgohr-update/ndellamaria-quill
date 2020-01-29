@@ -13,7 +13,7 @@ var profile = {
     max: 100,
   },
 
-  age: Number;
+  age: Number,
 
 
   gender: {
