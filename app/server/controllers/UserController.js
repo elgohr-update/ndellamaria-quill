@@ -62,7 +62,7 @@ function canRegister(email, password, callback){
       // return callback({
       //   message: "Not a valid educational email."
       // }, false);
-      return callback(null,null);
+      return callback(null,true);
     });
 
   });
