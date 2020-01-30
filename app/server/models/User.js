@@ -23,8 +23,6 @@ var profile = {
     }
   },
 
-  phoneNumber: String,
-
   educationLevel: {
     type: String,
     enum : {
