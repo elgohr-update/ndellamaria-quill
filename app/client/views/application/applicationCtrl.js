@@ -117,6 +117,33 @@ angular.module('reg')
                 }
               ]
             },
+            age: {
+              identifier: 'age',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please enter your age.'
+                }
+              ]
+            },
+            gender: {
+              identifier: 'gender',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please select a gender.'
+                }
+              ]
+            },
+            educationLevel: {
+              identifier: 'educationLevel',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please select an education level.'
+                }
+              ]
+            },
             school: {
               identifier: 'school',
               rules: [
@@ -135,24 +162,42 @@ angular.module('reg')
                 }
               ]
             },
-            gender: {
-              identifier: 'gender',
+            employment: {
+              identifier: 'employment',
               rules: [
                 {
                   type: 'empty',
-                  prompt: 'Please select a gender.'
+                  prompt: 'Please select an employment status.'
                 }
               ]
             },
-            adult: {
-              identifier: 'adult',
+            description: {
+              identifier: "description",
               rules: [
                 {
-                  type: 'allowMinors',
-                  prompt: 'You must be an adult, or an MIT student.'
+                  type: "empty",
+                  prompt: "Please tell us what your role will be"
                 }
               ]
-            }
+            },
+            languages: {
+              identifier: "languages",
+              rules: [
+                {
+                  type: "empty",
+                  prompt: "Please enter a programming language you know."
+                }
+              ]
+            },
+            essay: {
+              identifier: "essay",
+              rules: [
+                {
+                  type: "empty",
+                  prompt: "Please tell us why you want to attend NaijaHacks"
+                }
+              ]
+            },
           }
         });
       }
