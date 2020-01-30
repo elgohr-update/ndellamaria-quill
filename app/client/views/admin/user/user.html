@@ -89,78 +89,110 @@
                ng-model="selectedUser.profile.name">
       </div>
 
-      <div class="field" ng-show="autoFilledSchool">
-        <label> School </label>
-        <input class="ui input"
-               disabled="disabled"
-               ng-show="autoFilledSchool"
-               ng-model="selectedUser.profile.school">
-      </div>
-
-      <div class="field" ng-show="!autoFilledSchool">
-        <label> School </label>
-        <input class="ui input"
-               name="school"
-               ng-model="selectedUser.profile.school">
-      </div>
-
-      <div class="field">
-        <label>Graduation Year</label>
-        <select
-          name="year"
-          ng-model="selectedUser.profile.graduationYear">
-          <option value="">Graduation Year</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>Gender</label>
-        <select
-          name="gender"
-          ng-model="selectedUser.profile.gender">
-          <option value="">Gender</option>
-          <option value="M">Male</option>
-          <option value="F">Female</option>
-          <option value="O">Other</option>
-          <option value="N">I prefer not to answer.</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>I would describe myself as a...</label>
-        <input type="text"
-               placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
-               ng-model="selectedUser.profile.description">
-      </div>
-
-      <div class="field">
-        <label>
-            What would you like to learn or get out of HackMIT? (optional)
-        </label>
-        <textarea ng-model="selectedUser.profile.essay">
-        </textarea>
-      </div>
-
-      <div class="field"
-           ng-hide="isMitStudent">
-        <p>
-          Because of limitations imposed by MIT, we are not legally allowed to host
-          non-MIT minors (those under 18) for HackMIT 2015. Checking the box below affirms that you are or will be 18 years or older by September 19th, 2015.
-        </p>
-        <p>
-          <strong>
-          We will be checking ID. If you are a non-MIT minor, you will be turned away at the door.
-          </strong>
-        </p>
-        <div class="ui checkbox">
-          <input type="checkbox" id="adult" ng-model="selectedUser.profile.adult">
-          <label for="adult">I am 18 or older.</label>
+       <div class="field">
+          <label> Age </label>
+          <input type="number"
+                  name="age"
+                  ng-model="selectedUser.profile.age">
         </div>
-      </div>
+
+        <div class="field">
+          <label>Gender</label>
+          <select
+            name="gender"
+            ng-model="selectedUser.profile.gender">
+            <option value="">Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+            <option value="N">I prefer not to answer.</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Current Education Level</label>
+          <select
+            name="educationLevel"
+            ng-model="selectedUser.profile.educationLevel"
+            placeholder="Education Level">
+            <option value="S">Secondary</option>
+            <option value="T">Tertiary</option>
+            <option value="V">Vocational</option>
+            <option value="N">None</option>
+            <option value="O">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>School Attending/Attended.Please enter 'None' or your company name if
+              employed.</label>
+          <input type="text"
+                  name="school"
+                  ng-model="selectedUser.profile.school">
+        </div>
+
+        <div class="field">
+          <label> Expected Graduation Year (from Tertiary School) </label>
+          <select
+            name="year"
+            ng-model="selectedUser.profile.graduationYear">
+            <option value="">Graduation Year</option>
+            <option value="None">None</option>
+            <option value="pre-2020">Before 2020</option>
+            <option value="2016">2020</option>
+            <option value="2017">2021</option>
+            <option value="2018">2022</option>
+            <option value="2019">2023</option>
+            <option value="2019">2024</option>
+            <option value="2019">2025</option>
+            <option value="2019">2026</option>
+            <option value="2019">2027</option>
+          </select>
+        </div>
+
+         <div class="field">
+            <label>
+              What is your employment status?
+            </label>
+            <select name="focus" ng-model="selectedUser.profile.employment">
+              <option value=""></option>
+              <option value="Employed">Employed</option>
+              <option value="Looking for a job">Looking for a job</option>
+              <option value="Unemployed">Unemployed</option>
+              <option value="Underemployed">Underemployed</option>
+              <option value="Looking to start a company"
+                >Looking to start a company</option
+              >
+            </select>
+          </div>
+
+        <div class="field">
+          <label>I would describe myself as a...</label>
+          <input type="text"
+                 placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
+                 ng-model="selectedUser.profile.description">
+        </div>
+
+        <div class="field">
+            <label>
+              What programming languages/design software have you learned or
+              worked with?
+            </label>
+            <input
+              type="text"
+              ng-model="selectedUser.profile.languages"
+              name="languages"
+            />
+          </div>
+
+         
+        <div class="field">
+          <label>
+              What would you like to learn or get out of BothoHacks? (required)
+          </label>
+          <textarea ng-model="selectedUser.profile.essay">
+          </textarea>
+        </div>
 
       <div class="field">
         <div
