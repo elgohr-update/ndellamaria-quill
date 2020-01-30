@@ -275,8 +275,14 @@ angular.module('reg')
                 name: 'Name',
                 value: user.profile.name
               },{
+                name: 'Age',
+                value: user.profile.age
+              },{
                 name: 'Gender',
                 value: user.profile.gender
+              },{
+                name: 'Education Level',
+                value: user.profile.educationLevel
               },{
                 name: 'School',
                 value: user.profile.school
@@ -284,8 +290,14 @@ angular.module('reg')
                 name: 'Graduation Year',
                 value: user.profile.graduationYear
               },{
+                name: 'Employment',
+                value: user.profile.employment
+              },{
                 name: 'Description',
                 value: user.profile.description
+              },{
+                name: 'Languages',
+                value: user.profile.languages
               },{
                 name: 'Essay',
                 value: user.profile.essay
