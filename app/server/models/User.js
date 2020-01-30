@@ -215,7 +215,7 @@ var schema = new mongoose.Schema({
   verified: {
     type: Boolean,
     required: true,
-    default: false
+    default: true
   },
 
   salt: {
