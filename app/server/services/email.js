@@ -41,6 +41,7 @@ var controller = {};
 controller.transporter = transporter;
 
 function sendOne(templateName, options, data, callback) {
+  console.log("email sent");
   if (NODE_ENV === "dev") {
     console.log(templateName);
     console.log(JSON.stringify(data, "", 2));
