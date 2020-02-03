@@ -31,6 +31,13 @@ function calculateStats(){
         '2027': 0,
       }
     },
+    educationLevel: {
+      'S': 0,
+      'T': 0,
+      'V': 0,
+      'N': 0,
+      'O': 0,
+    },
 
     teams: {},
     verified: 0,
@@ -147,6 +154,11 @@ function calculateStats(){
         // Count graduation years
         if (user.profile.graduationYear){
           newStats.demo.year[user.profile.graduationYear] += 1;
+        }
+
+        // Count educationLevel
+        if (user.profile.educationLevel){
+          newStats.demo.year[user.profile.educationLevel] += 1;
         }
 
         // Grab the team name if there is one
