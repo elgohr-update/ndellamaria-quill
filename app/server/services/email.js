@@ -17,8 +17,7 @@ var EMAIL_USER = process.env.EMAIL_USER;
 var EMAIL_PASS = process.env.EMAIL_PASS;
 var EMAIL_PORT = process.env.EMAIL_PORT;
 var EMAIL_CONTACT = process.env.EMAIL_CONTACT;
-var EMAIL_HEADER_IMAGE = 'https://bothohacks-logo.s3.us-east-2.amazonaws.com/Asset+5.png';
-//process.env.EMAIL_HEADER_IMAGE;
+var EMAIL_HEADER_IMAGE = process.env.EMAIL_HEADER_IMAGE;
 if(EMAIL_HEADER_IMAGE.indexOf("https") == -1){
   EMAIL_HEADER_IMAGE = ROOT_URL + EMAIL_HEADER_IMAGE;
 }
@@ -90,7 +89,7 @@ controller.sendVerificationEmail = function(email, token, callback) {
 
   var options = {
     to: email,
-    subject: "["+HACKATHON_NAME+"] - Verify your email"
+    subject: "BothoHacks Email Verification"
   };
 
   var locals = {
@@ -126,7 +125,7 @@ controller.sendPasswordResetEmail = function(email, token, callback) {
 
   var options = {
     to: email,
-    subject: "["+HACKATHON_NAME+"] - Password reset requested!"
+    subject: "BothoHacks Password Reset Request"
   };
 
   var locals = {
@@ -167,7 +166,7 @@ controller.sendPasswordChangedEmail = function(email, callback){
 
   var options = {
     to: email,
-    subject: "["+HACKATHON_NAME+"] - Your password has been changed!"
+    subject: "BothoHacks Password Change"
   };
 
   var locals = {
