@@ -19,9 +19,10 @@
         </div>
 
         <div class="field">
-          <label> Full Name </label>
+          <label> Full Name (required) </label>
           <input type="text"
                  name="name"
+                 required
                  placeholder="Name"
                  ng-model="user.profile.name">
         </div>
@@ -40,10 +41,11 @@
             />
           </div>
         <div class="field">
-          <label> Age </label>
+          <label> Age (requried) </label>
           <input type="number"
                   name="age"
                   placeholder="Age"
+                  required
                   ng-model="user.profile.age">
         </div>
 
@@ -98,10 +100,11 @@
 
         <div class="field">
           <label>School Attending/Attended. Please enter 'None' or your company name if
-              employed.</label>
+              employed. (required)</label>
           <input type="text"
                   name="school"
                   placeholder="School"
+                  required
                   ng-model="user.profile.school">
         </div>
 
@@ -190,7 +193,7 @@
           <label>
               What would you like to learn or get out of BothoHacks? (required)
           </label>
-          <textarea ng-model="user.profile.essay">
+          <textarea required ng-model="user.profile.essay">
           </textarea>
         </div>
 
@@ -244,6 +247,7 @@
               type="text"
               name="signatureCodeOfConduct"
               placeholder="Your Full Legal Name"
+              required
               ng-model="user.confirmation.signatureCodeOfConduct"
             />
           </div>
@@ -270,6 +274,7 @@
               type="text"
               name="signaturePhotoRelease"
               placeholder="Your Full Legal Name"
+              required
               ng-model="user.confirmation.signaturePhotoRelease"
             />
           </div>
@@ -286,7 +291,7 @@
                 target="_blank"
                 href="https://docs.google.com/document/d/1kM6jLStbhycdrJtv7QwUdwLoPiYXHjNnyldbircSMpM/edit?usp=sharing"
               >
-                Terms and Conditions
+                Terms and Conditions (required)
               </a>
             </p>
             <p>
@@ -301,6 +306,7 @@
               type="text"
               name="signatureLiabilityWaiver"
               placeholder="Your Full Legal Name"
+              required
               ng-model="user.confirmation.signatureLiability"
             />
           </div>
