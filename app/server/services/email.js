@@ -218,7 +218,7 @@ controller.sendAcceptanceEmail = function(email, name, callback) {
       " - Botho University's First Official Hackathon." +
       " The next step is to confirm your participation, enter your t-shirt size, upload your CV/resume for job interviews and get excited!" +
       ' To share your excitement and let your friends know, tweet/post/ig "I just got accepted to #BothoHacks2020. Cant wait!!! @bothohacks"',
-    actionUrl: ROOT_URL,
+    actionUrl: ROOT_URL + '/login',
     actionName: "Confirm your participation"
   };
 
