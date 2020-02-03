@@ -619,7 +619,7 @@ UserController.resetPassword = function(token, password, callback){
         return callback(null, {
           message: 'Password successfully reset!'
         });
-      });
+      },);
   });
 };
 
@@ -645,8 +645,11 @@ UserController.admitUser = function(id, user, callback){
         }
       }, {
         new: true
-      },
-      callback);
+      }, (err, user) => {
+        Mailer.sendAcceptanceEmail(user.email, user.profile.name);
+        callback(err, user);
+      }
+    );
   });
 };
 
