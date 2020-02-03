@@ -275,6 +275,9 @@ angular.module('reg')
                 name: 'Name',
                 value: user.profile.name
               },{
+                name: 'Phone Number',
+                value: user.profile.phoneNumber
+              },{
                 name: 'Age',
                 value: user.profile.age
               },{
@@ -307,9 +310,6 @@ angular.module('reg')
             name: 'Confirmation',
             fields: [
               {
-                name: 'Phone Number',
-                value: user.confirmation.phoneNumber
-              },{
                 name: 'Dietary Restrictions',
                 value: user.confirmation.dietaryRestrictions.join(', ')
               },{
