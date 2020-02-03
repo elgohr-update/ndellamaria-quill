@@ -24,6 +24,13 @@ angular.module('reg')
         $scope.user.profile.adult = true;
       }
 
+
+    $scope.steps = [true, false, false, false];
+    $scope.updateStep = (stepToDisable, stepToEnable) => {
+      $scope.steps[stepToDisable] = false;
+      $scope.steps[stepToEnable] = true;
+    };
+
       // Populate the school dropdown
       populateSchools();
       _setupForm();
@@ -117,6 +124,15 @@ angular.module('reg')
                 }
               ]
             },
+            phone: {
+            identifier: "phone",
+            rules: [
+              {
+                type: "empty",
+                prompt: "Please enter a phone number."
+              }
+            ]
+          },
             age: {
               identifier: 'age',
               rules: [
@@ -195,6 +211,33 @@ angular.module('reg')
                 {
                   type: "empty",
                   prompt: "Please tell us why you want to attend NaijaHacks"
+                }
+              ]
+            },
+                        signatureLiability: {
+              identifier: 'signatureLiabilityWaiver',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please type your digital signature.'
+                }
+              ]
+            },
+            signaturePhotoRelease: {
+              identifier: 'signaturePhotoRelease',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please type your digital signature.'
+                }
+              ]
+            },
+            signatureCodeOfConduct: {
+              identifier: 'signatureCodeOfConduct',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please type your digital signature.'
                 }
               ]
             },
