@@ -18,6 +18,19 @@ angular.module('reg')
 
       $scope.formatTime = Utils.formatTime;
 
+      user.confirmation.phoneNumber =
+      user.confirmation.phoneNumber || user.profile.phoneNumber || "";
+
+      if (!user.confirmation.address) {
+        user.confirmation.address = {};
+      }
+
+      user.confirmation.address.country =
+        user.confirmation.address.country || "Botswana";
+
+      user.confirmation.address.name =
+      user.confirmation.address.name || user.profile.name;
+
       _setupForm();
 
       $scope.fileName = user._id + "_" + user.profile.name.split(" ").join("_");
