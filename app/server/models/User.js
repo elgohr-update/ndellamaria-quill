@@ -13,6 +13,7 @@ var profile = {
     max: 100,
   },
 
+  phoneNumber: String,
   age: Number,
 
 
@@ -77,7 +78,6 @@ var profile = {
 
 // Only after confirmed
 var confirmation = {
-  phoneNumber: String,
   dietaryRestrictions: [String],
   shirtSize: {
     type: String,
