@@ -17,7 +17,8 @@ var EMAIL_USER = process.env.EMAIL_USER;
 var EMAIL_PASS = process.env.EMAIL_PASS;
 var EMAIL_PORT = process.env.EMAIL_PORT;
 var EMAIL_CONTACT = process.env.EMAIL_CONTACT;
-var EMAIL_HEADER_IMAGE = process.env.EMAIL_HEADER_IMAGE;
+var EMAIL_HEADER_IMAGE = 'https://bothohacks-logo.s3.us-east-2.amazonaws.com/Asset+5.png';
+//process.env.EMAIL_HEADER_IMAGE;
 if(EMAIL_HEADER_IMAGE.indexOf("https") == -1){
   EMAIL_HEADER_IMAGE = ROOT_URL + EMAIL_HEADER_IMAGE;
 }
@@ -193,5 +194,54 @@ controller.sendPasswordChangedEmail = function(email, callback){
   });
 
 };
+
+/**
+ * Send a admittance email.
+ * @param  {[type]}   email    [description]
+ * @param  {[type]}   name    [description]
+ * @param  {Function} callback [description]
+ */
+controller.sendAcceptanceEmail = function(email, name, callback) {
+  var options = {
+    to: email,
+    subject: "BothoHacks Participant Acceptance"
+  };
+
+  const hashtag = "#BothoHacks2020";
+
+  var locals = {
+    title: "Congratulations...!!!",
+    subtitle: "",
+    description:
+      name +
+      ", congratulations! You have been accepted as a participant to " +
+      hashtag +
+      " - Botho University's First Official Hackathon." +
+      " The next step is to confirm your participation, enter your t-shirt size, upload your CV/resume for job interviews and get excited!" +
+      ' To share your excitement and let your friends know, tweet/post/ig "I just got accepted to #BothoHacks2020. Cant wait!!! @bothohacks"',
+    actionUrl: ROOT_URL,
+    actionName: "Confirm your participation"
+  };
+
+  /**
+   * Eamil-verify takes a few template values:
+   * {
+   *   verifyUrl: the url that the user must visit to verify their account
+   * }
+   */
+  sendOne('email-link-action', options, locals, function(err, info){
+    if (err){
+      console.log(err);
+    }
+    if (info){
+      console.log(info.message);
+    }
+    if (callback){
+      callback(err, info);
+    }
+  });
+
+};
+
 
 module.exports = controller;
