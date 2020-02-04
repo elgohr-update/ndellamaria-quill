@@ -41,7 +41,7 @@
             />
           </div>
         <div class="field">
-          <label> Age (requried) </label>
+          <label> Age (required) </label>
           <input type="number"
                   name="age"
                   placeholder="Age"
@@ -171,6 +171,7 @@
         <div class="field">
           <label>I would describe myself as a...</label>
           <input type="text"
+                 name="description"
                  placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
                  ng-model="user.profile.description">
         </div>
@@ -191,9 +192,10 @@
          
         <div class="field">
           <label>
-              What would you like to learn or get out of BothoHacks? (required)
+              What would you like to learn or get out of BothoHacks? What do you want
+              to achieve by the end of it? (required)
           </label>
-          <textarea required ng-model="user.profile.essay">
+          <textarea name="essay" ng-model="user.profile.essay" required>
           </textarea>
         </div>
 

@@ -125,14 +125,14 @@ angular.module('reg')
               ]
             },
             phone: {
-            identifier: "phone",
-            rules: [
-              {
-                type: "empty",
-                prompt: "Please enter a phone number."
-              }
-            ]
-          },
+              identifier: "phone",
+              rules: [
+                {
+                  type: "empty",
+                  prompt: "Please enter a phone number."
+                }
+              ]
+            },
             age: {
               identifier: 'age',
               rules: [
@@ -187,34 +187,34 @@ angular.module('reg')
                 }
               ]
             },
-            description: {
-              identifier: "description",
-              rules: [
-                {
-                  type: "empty",
-                  prompt: "Please tell us what your role will be"
-                }
-              ]
-            },
-            languages: {
-              identifier: "languages",
-              rules: [
-                {
-                  type: "empty",
-                  prompt: "Please enter a programming language you know."
-                }
-              ]
-            },
+            // description: {
+            //   identifier: "description",
+            //   rules: [
+            //     {
+            //       type: "empty",
+            //       prompt: "Please tell us what your role will be."
+            //     }
+            //   ]
+            // },
+            // languages: {
+            //   identifier: "languages",
+            //   rules: [
+            //     {
+            //       type: "empty",
+            //       prompt: "Please enter a programming language you know."
+            //     }
+            //   ]
+            // },
             essay: {
               identifier: "essay",
               rules: [
                 {
                   type: "empty",
-                  prompt: "Please tell us why you want to attend NaijaHacks"
+                  prompt: "Please tell us why you want to attend BothoHacks."
                 }
               ]
             },
-                        signatureLiability: {
+            signatureLiability: {
               identifier: 'signatureLiabilityWaiver',
               rules: [
                 {
