@@ -83,7 +83,6 @@ var profile = {
   resume: String,
 
   // Supporting Information
-
   focus: {
     type: String,
     min: 0,
@@ -359,7 +358,6 @@ schema.statics.validateProfile = function(profile, cb){
     profile.name.length > 0 &&
     // profile.adult &&
     profile.school.length > 0 &&
-    ['None', 'pre-2020', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027'].indexOf(profile.graduationYear) > -1 &&
     ['M', 'F', 'O', 'N'].indexOf(profile.gender) > -1
     ));
 };
