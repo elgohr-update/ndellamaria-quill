@@ -14,70 +14,51 @@ angular.module('reg')
     function($scope, $rootScope, $state, $http, currentUser, settings, Session, UserService) {
 
       // Set up the user
-      $scope.user = currentUser.data;
+      var user = currentUser.data;
+      $scope.user = user;
 
-      // Is the student from MIT?
-      $scope.isMitStudent = $scope.user.email.split('@')[1] == 'mit.edu';
-
-      // If so, default them to adult: true
-      if ($scope.isMitStudent){
-        $scope.user.profile.adult = true;
-      }
-
-
-    $scope.steps = [true, false, false, false];
-    $scope.updateStep = (stepToDisable, stepToEnable) => {
+      $scope.steps = [true, false, false, false, false];
+      $scope.updateStep = (stepToDisable, stepToEnable) => {
       $scope.steps[stepToDisable] = false;
       $scope.steps[stepToEnable] = true;
-    };
+      };
 
-      // Populate the school dropdown
-      populateSchools();
-      _setupForm();
+    _setupForm();
+    // -------------------------------
+    // All this just for dietary restriction checkboxes fml
 
-      $scope.regIsClosed = Date.now() > settings.data.timeClose;
+      var dietaryRestrictions = {
+        'Vegetarian': false,
+        'Vegan': false,
+        'Halal': false,
+        'Kosher': false,
+        'Nut Allergy': false
+      };
 
-      /**
-       * TODO: JANK WARNING
-       */
-      function populateSchools(){
-        $http
-          .get('/assets/schools.json')
-          .then(function(res){
-            var schools = res.data;
-            var email = $scope.user.email.split('@')[1];
-
-            if (schools[email]){
-              $scope.user.profile.school = schools[email].school;
-              $scope.autoFilledSchool = true;
-            }
-          });
-
-        $http
-          .get('/assets/schools.csv')
-          .then(function(res){
-            $scope.schools = res.data.split('\n');
-            $scope.schools.push('Other');
-
-            var content = [];
-
-            for(i = 0; i < $scope.schools.length; i++) {
-              $scope.schools[i] = $scope.schools[i].trim();
-              content.push({title: $scope.schools[i]})
-            }
-
-            $('#school.ui.search')
-              .search({
-                source: content,
-                cache: true,
-                onSelect: function(result, response) {
-                  $scope.user.profile.school = result.title.trim();
-                }
-              })
-          });
+      if (user.profile.dietaryRestrictions){
+        user.profile.dietaryRestrictions.forEach(function(restriction){
+          if (restriction in dietaryRestrictions){
+            dietaryRestrictions[restriction] = true;
+          }
+        });
       }
 
+
+      $scope.dietaryRestrictions = dietaryRestrictions;
+
+      
+
       function _updateUser(e){
+        var profile = $scope.user.profile;
+        // Get the dietary restrictions as an array
+        var drs = [];
+        Object.keys($scope.dietaryRestrictions).forEach(function(key){
+          if ($scope.dietaryRestrictions[key]){
+            drs.push(key);
+          }
+        });
+        profile.dietaryRestrictions = drs;
+
         UserService
           .updateProfile(Session.getUserId(), $scope.user.profile)
           .then(response => {
@@ -142,24 +123,33 @@ angular.module('reg')
                 }
               ]
             },
-            gender: {
-              identifier: 'gender',
+            // gender: {
+            //   identifier: 'gender',
+            //   rules: [
+            //     {
+            //       type: 'empty',
+            //       prompt: 'Please select a gender.'
+            //     }
+            //   ]
+            // },
+            shirt: {
+              identifier: 'shirt',
               rules: [
                 {
                   type: 'empty',
-                  prompt: 'Please select a gender.'
+                  prompt: 'Please give us a shirt size!'
                 }
               ]
             },
-            educationLevel: {
-              identifier: 'educationLevel',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please select an education level.'
-                }
-              ]
-            },
+            // educationLevel: {
+            //   identifier: 'educationLevel',
+            //   rules: [
+            //     {
+            //       type: 'empty',
+            //       prompt: 'Please select an education level.'
+            //     }
+            //   ]
+            // },
             school: {
               identifier: 'school',
               rules: [
@@ -169,24 +159,24 @@ angular.module('reg')
                 }
               ]
             },
-            year: {
-              identifier: 'year',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please select your graduation year.'
-                }
-              ]
-            },
-            employment: {
-              identifier: 'employment',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please select an employment status.'
-                }
-              ]
-            },
+            // year: {
+            //   identifier: 'year',
+            //   rules: [
+            //     {
+            //       type: 'empty',
+            //       prompt: 'Please select your graduation year.'
+            //     }
+            //   ]
+            // },
+            // employment: {
+            //   identifier: 'employment',
+            //   rules: [
+            //     {
+            //       type: 'empty',
+            //       prompt: 'Please select an employment status.'
+            //     }
+            //   ]
+            // },
             // description: {
             //   identifier: "description",
             //   rules: [
@@ -205,6 +195,15 @@ angular.module('reg')
             //     }
             //   ]
             // },
+            focus: {
+              identifier: "focus",
+              rules: [
+                {
+                  type: "empty",
+                  prompt: "Please select the based on experience level."
+                }
+              ]
+            },
             essay: {
               identifier: "essay",
               rules: [
@@ -253,3 +252,60 @@ angular.module('reg')
         }
       };
     }]);
+
+
+
+// // Is the student from MIT?
+// $scope.isMitStudent = $scope.user.email.split('@')[1] == 'mit.edu';
+
+// // If so, default them to adult: true
+// if ($scope.isMitStudent){
+//   $scope.user.profile.adult = true;
+// }
+
+
+// Populate the school dropdown
+// populateSchools();
+// _setupForm();
+
+// $scope.regIsClosed = Date.now() > settings.data.timeClose;
+
+// /**
+//  * TODO: JANK WARNING
+//  */
+// function populateSchools(){
+//   $http
+//     .get('/assets/schools.json')
+//     .then(function(res){
+//       var schools = res.data;
+//       var email = $scope.user.email.split('@')[1];
+
+//       if (schools[email]){
+//         $scope.user.profile.school = schools[email].school;
+//         $scope.autoFilledSchool = true;
+//       }
+//     });
+
+//   $http
+//     .get('/assets/schools.csv')
+//     .then(function(res){
+//       $scope.schools = res.data.split('\n');
+//       $scope.schools.push('Other');
+
+//       var content = [];
+
+//       for(i = 0; i < $scope.schools.length; i++) {
+//         $scope.schools[i] = $scope.schools[i].trim();
+//         content.push({title: $scope.schools[i]})
+//       }
+
+//       $('#school.ui.search')
+//         .search({
+//           source: content,
+//           cache: true,
+//           onSelect: function(result, response) {
+//             $scope.user.profile.school = result.title.trim();
+//           }
+//         })
+//     });
+// }
