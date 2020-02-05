@@ -60,16 +60,6 @@
             {{stats.confirmed}}
           </div>
         </div>
-        <div
-          class="item">
-          <i class="green circle check icon"></i>
-          <div class="content">
-            <strong>
-              Confirmed (MIT)
-            </strong> :
-            {{stats.confirmedMit}}
-          </div>
-        </div>
         <div class="item">
           <i class="circle red icon"></i>
           <div class="content">
@@ -122,7 +112,7 @@
           </div>
         </div> -->
 
-        <div class="ui divider"></div>
+      <!--   <div class="ui divider"></div>
 
         <div class="item">
           <i class="green money icon"></i>
@@ -151,7 +141,7 @@
               Need/Want Hardware:
             </strong>{{stats.wantsHardware}}
           </div>
-        </div>
+        </div> -->
 
         <div class="ui divider"></div>
 
@@ -210,10 +200,22 @@
         </div>
       </div>
     </div>
+
     <div class="ui divider"></div>
       <div class="ui list">
+      <div class="item">
+          <strong>Beginner:</strong> {{stats.demo.focus['B']}} ({{stats.demo.focus['B'] / stats.total * 100 | number: 1}}%)
+        </div>
         <div class="item">
-          <strong>None:</strong> {{stats.demo.year['None']}} ({{stats.demo.year['None'] / stats.total * 100 | number: 1}}%)
+          <strong>Main:</strong> {{stats.demo.focus['M']}} ({{stats.demo.focus['M'] / stats.total * 100 | number: 1}}%)
+        </div>
+      </div>
+
+
+   <!--  <div class="ui divider"></div>
+      <div class="ui list">
+        <div class="item">
+          <strong>None:</strong> {{stats.demo.focus['None']}} ({{stats.demo.year['None'] / stats.total * 100 | number: 1}}%)
         </div>
         <div class="item">
           <strong>Before 2020:</strong> {{stats.demo.year['pre-2020']}} ({{stats.demo.year['pre-2020'] / stats.total * 100 | number: 1}}%)
@@ -242,23 +244,32 @@
         <div class="item">
           <strong>2027:</strong> {{stats.demo.year['2027']}} ({{stats.demo.year['2027'] / stats.total * 100 | number: 1}}%)
         </div>
-      </div>
+      </div> -->
     <div class="ui divider"></div>
       <div class="ui list">
         <div class="item">
-          <strong>Secondary:</strong> {{stats.demo.educationLevel['S']}} ({{stats.demo.educationLevel['S'] / stats.total * 100 | number: 1}}%)
+          <strong>Secondary - Form 4:</strong> {{stats.demo.educationLevel['S4']}} ({{stats.demo.educationLevel['S4'] / stats.total * 100 | number: 1}}%)
         </div>
         <div class="item">
-          <strong>Tertiary:</strong> {{stats.demo.educationLevel['T']}} ({{stats.demo.educationLevel['T'] / stats.total * 100 | number: 1}}%)
+          <strong>Secondary - Form 5</strong> {{stats.demo.educationLevel['S5']}} ({{stats.demo.educationLevel['S5'] / stats.total * 100 | number: 1}}%)
         </div>
         <div class="item">
-         <strong>Vocational:</strong> {{stats.demo.educationLevel['V']}} ({{stats.demo.educationLevel['V'] / stats.total * 100 | number: 1}}%)
+         <strong>Tertiary - 1st Year</strong> {{stats.demo.educationLevel['T1']}} ({{stats.demo.educationLevel['T1'] / stats.total * 100 | number: 1}}%)
         </div>
         <div class="item">
-          <strong>None:</strong> {{stats.demo.educationLevel['N']}} ({{stats.demo.educationLevel['N'] / stats.total * 100 | number: 1}}%)
+          <strong>Tertiary - 2nd Year</strong> {{stats.demo.educationLevel['T2']}} ({{stats.demo.educationLevel['T2'] / stats.total * 100 | number: 1}}%)
         </div>
         <div class="item">
-          <strong>Other:</strong> {{stats.demo.educationLevel['O']}} ({{stats.demo.educationLevel['O'] / stats.total * 100 | number: 1}}%)
+          <strong>Tertiary - 3rd Year</strong> {{stats.demo.educationLevel['T3']}} ({{stats.demo.educationLevel['T3'] / stats.total * 100 | number: 1}}%)
+        </div>
+         <div class="item">
+          <strong>Tertiary - 4th Year</strong> {{stats.demo.educationLevel['T4']}} ({{stats.demo.educationLevel['T4'] / stats.total * 100 | number: 1}}%)
+        </div>
+         <div class="item">
+          <strong>Tertiary - 5th Year</strong> {{stats.demo.educationLevel['T5']}} ({{stats.demo.educationLevel['T5'] / stats.total * 100 | number: 1}}%)
+        </div>
+        <div class="item">
+          <strong>Graduate Student</strong> {{stats.demo.educationLevel['G']}} ({{stats.demo.educationLevel['G'] / stats.total * 100 | number: 1}}%)
         </div>
       </div>
     <!-- <div class="ui divider"></div>

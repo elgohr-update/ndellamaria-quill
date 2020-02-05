@@ -18,33 +18,42 @@ function calculateStats(){
         N: 0
       },
       schools: {},
-      year: {
-        'None': 0,
-        'pre-2020': 0,
-        '2020': 0,
-        '2021': 0,
-        '2022': 0,
-        '2023': 0,
-        '2024': 0,
-        '2025': 0,
-        '2026': 0,
-        '2027': 0,
-      }
-    },
+    //   year: {
+    //     'None': 0,
+    //     'pre-2020': 0,
+    //     '2020': 0,
+    //     '2021': 0,
+    //     '2022': 0,
+    //     '2023': 0,
+    //     '2024': 0,
+    //     '2025': 0,
+    //     '2026': 0,
+    //     '2027': 0,
+    //   }
+    // },
     educationLevel: {
-      'S': 0,
-      'T': 0,
-      'V': 0,
-      'N': 0,
-      'O': 0,
+      'S4': 0,
+      'S5': 0,
+      'T1': 0,
+      'T2': 0,
+      'T3': 0,
+      'T4': 0,
+      'T5': 0,
+      'G': 0
     },
+
+    focus: {
+      'B': 0,
+      'M': 0
+    },
+  },
 
     teams: {},
     verified: 0,
     submitted: 0,
     admitted: 0,
     confirmed: 0,
-    confirmedMit: 0,
+    // confirmedMit: 0,
     declined: 0,
 
     confirmedFemale: 0,
@@ -59,30 +68,30 @@ function calculateStats(){
       'L': 0,
       'XL': 0,
       'XXL': 0,
-      'WXS': 0,
-      'WS': 0,
-      'WM': 0,
-      'WL': 0,
-      'WXL': 0,
-      'WXXL': 0,
+      // 'WXS': 0,
+      // 'WS': 0,
+      // 'WM': 0,
+      // 'WL': 0,
+      // 'WXL': 0,
+      // 'WXXL': 0,
       'None': 0
     },
 
     dietaryRestrictions: {},
 
-    hostNeededFri: 0,
-    hostNeededSat: 0,
-    hostNeededUnique: 0,
+    // hostNeededFri: 0,
+    // hostNeededSat: 0,
+    // hostNeededUnique: 0,
 
-    hostNeededFemale: 0,
-    hostNeededMale: 0,
-    hostNeededOther: 0,
-    hostNeededNone: 0,
+    // hostNeededFemale: 0,
+    // hostNeededMale: 0,
+    // hostNeededOther: 0,
+    // hostNeededNone: 0,
 
-    reimbursementTotal: 0,
-    reimbursementMissing: 0,
+    // reimbursementTotal: 0,
+    // reimbursementMissing: 0,
 
-    wantsHardware: 0,
+    // wantsHardware: 0,
 
     checkedIn: 0
   };
@@ -117,7 +126,7 @@ function calculateStats(){
         newStats.confirmed += user.status.confirmed ? 1 : 0;
 
         // Count confirmed that are mit
-        newStats.confirmedMit += user.status.confirmed && email === "mit.edu" ? 1 : 0;
+        // newStats.confirmedMit += user.status.confirmed && email === "mit.edu" ? 1 : 0;
 
         newStats.confirmedFemale += user.status.confirmed && user.profile.gender == "F" ? 1 : 0;
         newStats.confirmedMale += user.status.confirmed && user.profile.gender == "M" ? 1 : 0;
@@ -128,14 +137,14 @@ function calculateStats(){
         newStats.declined += user.status.declined ? 1 : 0;
 
         // Count the number of people who need reimbursements
-        newStats.reimbursementTotal += user.confirmation.needsReimbursement ? 1 : 0;
+        // newStats.reimbursementTotal += user.confirmation.needsReimbursement ? 1 : 0;
 
         // Count the number of people who still need to be reimbursed
-        newStats.reimbursementMissing += user.confirmation.needsReimbursement &&
-          !user.status.reimbursementGiven ? 1 : 0;
+        // newStats.reimbursementMissing += user.confirmation.needsReimbursement &&
+        //   !user.status.reimbursementGiven ? 1 : 0;
 
         // Count the number of people who want hardware
-        newStats.wantsHardware += user.confirmation.wantsHardware ? 1 : 0;
+        // newStats.wantsHardware += user.confirmation.wantsHardware ? 1 : 0;
 
         // Count schools
         if (!newStats.demo.schools[email]){
@@ -152,13 +161,17 @@ function calculateStats(){
         newStats.demo.schools[email].declined += user.status.declined ? 1 : 0;
 
         // Count graduation years
-        if (user.profile.graduationYear){
-          newStats.demo.year[user.profile.graduationYear] += 1;
-        }
+        // if (user.profile.graduationYear){
+        //   newStats.demo.year[user.profile.graduationYear] += 1;
+        // }
 
         // Count educationLevel
         if (user.profile.educationLevel){
-          newStats.demo.year[user.profile.educationLevel] += 1;
+          newStats.demo.educationLevel[user.profile.educationLevel] += 1;
+        }
+
+        if (user.profile.focus){
+          newStats.demo.focus[user.profile.focus]+=1;
         }
 
         // Grab the team name if there is one
@@ -175,18 +188,18 @@ function calculateStats(){
         }
 
         // Host needed counts
-        newStats.hostNeededFri += user.confirmation.hostNeededFri ? 1 : 0;
-        newStats.hostNeededSat += user.confirmation.hostNeededSat ? 1 : 0;
-        newStats.hostNeededUnique += user.confirmation.hostNeededFri || user.confirmation.hostNeededSat ? 1 : 0;
+        // newStats.hostNeededFri += user.confirmation.hostNeededFri ? 1 : 0;
+        // newStats.hostNeededSat += user.confirmation.hostNeededSat ? 1 : 0;
+        // newStats.hostNeededUnique += user.confirmation.hostNeededFri || user.confirmation.hostNeededSat ? 1 : 0;
 
-        newStats.hostNeededFemale
-          += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "F" ? 1 : 0;
-        newStats.hostNeededMale
-          += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "M" ? 1 : 0;
-        newStats.hostNeededOther
-          += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "O" ? 1 : 0;
-        newStats.hostNeededNone
-          += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "N" ? 1 : 0;
+        // newStats.hostNeededFemale
+        //   += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "F" ? 1 : 0;
+        // newStats.hostNeededMale
+        //   += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "M" ? 1 : 0;
+        // newStats.hostNeededOther
+        //   += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "O" ? 1 : 0;
+        // newStats.hostNeededNone
+        //   += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "N" ? 1 : 0;
 
         // Dietary restrictions
         if (user.confirmation.dietaryRestrictions){
