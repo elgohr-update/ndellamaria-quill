@@ -16,6 +16,15 @@ var profile = {
   phoneNumber: String,
   age: Number,
 
+  address: {
+    name: String,
+    line1: String,
+    line2: String,
+    city: String,
+    state: String,
+    zip: String,
+    country: String
+  },
 
   gender: {
     type: String,
@@ -24,6 +33,16 @@ var profile = {
     }
   },
 
+  dietaryRestrictions: [String],
+
+  shirtSize: {
+    type: String,
+    enum: {
+      values: 'XS S M L XL XXL WXS WS WM WL WXL WXXL'.split(' ')
+    }
+  },
+
+  // Education
   educationLevel: {
     type: String,
     enum : {
@@ -57,6 +76,23 @@ var profile = {
     }
   },
 
+  // Skills & Accomplishments
+  major: String,
+  github: String,
+  twitter: String,
+  resume: String,
+
+  // Supporting Information
+
+  focus: {
+    type: String,
+    min: 0,
+    max: 1500,
+    enum: {
+      values: "B M".split(" ")
+    }
+  },
+
   description: {
     type: String,
     min: 0,
@@ -74,50 +110,19 @@ var profile = {
     min: 0,
     max: 1500
   },
+
+  //Legal & Everything Else
+  signatureLiability: String,
+  signaturePhotoRelease: String,
+  signatureCodeOfConduct: String,
+
+  notes: String,
 };
 
 // Only after confirmed
 var confirmation = {
-  dietaryRestrictions: [String],
-  shirtSize: {
-    type: String,
-    enum: {
-      values: 'XS S M L XL XXL WXS WS WM WL WXL WXXL'.split(' ')
-    }
-  },
-  wantsHardware: Boolean,
-  hardware: String,
-
-  major: String,
-  github: String,
-  twitter: String,
-  website: String,
-  resume: String,
-
-  needsReimbursement: Boolean,
-  address: {
-    name: String,
-    line1: String,
-    line2: String,
-    city: String,
-    state: String,
-    zip: String,
-    country: String
-  },
-  receipt: String,
-
-  hostNeededFri: Boolean,
-  hostNeededSat: Boolean,
-  genderNeutral: Boolean,
-  catFriendly: Boolean,
-  smokingFriendly: Boolean,
-  hostNotes: String,
-
+  confirm: Boolean,
   notes: String,
-
-  signatureLiability: String,
-  signaturePhotoRelease: String,
-  signatureCodeOfConduct: String,
 };
 
 var status = {
