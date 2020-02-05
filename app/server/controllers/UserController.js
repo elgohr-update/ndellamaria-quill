@@ -350,7 +350,7 @@ UserController.updateConfirmationById = function (id, confirmation, callback){
         $set: {
           'lastUpdated': Date.now(),
           'confirmation': confirmation,
-          'status.confirmed': true,
+          'status.confirmed': confirmation.confirm,
         }
       }, {
         new: true

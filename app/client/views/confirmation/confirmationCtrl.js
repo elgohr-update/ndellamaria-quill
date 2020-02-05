@@ -30,9 +30,16 @@ angular.module('reg')
         UserService
           .updateConfirmation(user._id, confirmation)
           .then(response => {
-            swal("Woo!", "You're confirmed!", "success").then(value => {
+            if(response.data.confirmation.confirm == true) {
+              swal("Woo!", "You're confirmed!", "success").then(value => {
               $state.go("app.dashboard");
             });
+            }
+            else {
+              swal("We'll Miss You!", "Your attendance is no longer confirmed.", "success").then(value => {
+              $state.go("app.dashboard");
+            });
+            }
           }, response => {
             swal("Uh oh!", "Something went wrong.", "error");
           });
@@ -47,7 +54,7 @@ angular.module('reg')
               rules: [
                 {
                   type: 'empty',
-                  prompt: 'Please give us a shirt size!'
+                  prompt: 'Please confirm your attendance!'
                 }
               ]
             },

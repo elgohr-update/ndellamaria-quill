@@ -56,12 +56,12 @@ var profile = {
     max: 150,
   },
 
-  graduationYear: {
-    type: String,
-    enum: {
-      values: 'None pre-2020 2020 2021 2022 2023 2024 2025 2026 2027'.split(' '),
-    }
-  },
+  // graduationYear: {
+  //   type: String,
+  //   enum: {
+  //     values: 'None pre-2020 2020 2021 2022 2023 2024 2025 2026 2027'.split(' '),
+  //   }
+  // },
 
   employment: {
     type: String,
