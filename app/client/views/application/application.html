@@ -161,17 +161,23 @@
         <fieldset ng-disabled="regIsClosed" ng-hide="!steps[1]">
           <div class="divided title">Education</div>
         <div class="field">
-          <label>Current Education Level</label>
+          <label>Current Education Level (required)</label>
           <select
             name="educationLevel"
             ng-model="user.profile.educationLevel"
             placeholder="Education Level">
             <option value=""></option>
-            <option value="S">Secondary</option>
-            <option value="T">Tertiary</option>
-            <option value="V">Vocational</option>
+            <option value="S4">Secondary - 4th Form</option>
+            <option value="S5">Secondary - 5th Form</option>
+            <option value="T1">Tertiary - 1st Year</option>
+            <option value="T2">Tertiary - 2nd Year</option>
+            <option value="T3">Tertiary - 3rd Year</option>
+            <option value="T4">Tertiary - 4th Year</option>
+            <option value="T5">Tertiary - 5th Year</option>
+            <option value="G">Graduate Student</option>
+<!--             <option value="V">Vocational</option>
             <option value="N">None</option>
-            <option value="O">Other</option>
+            <option value="O">Other</option> -->
           </select>
         </div>
 
@@ -185,7 +191,7 @@
                   ng-model="user.profile.school">
         </div>
 
-        <div class="field">
+<!--         <div class="field">
           <label> Expected Graduation Year (from Tertiary School) </label>
           <select
             name="year"
@@ -203,7 +209,8 @@
             <option value="2026">2026</option>
             <option value="2027">2027</option>
           </select>
-        </div>
+        </div> -->
+
          <div class="field">
             <label>
               What is your employment status?

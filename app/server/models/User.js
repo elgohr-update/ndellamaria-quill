@@ -46,7 +46,7 @@ var profile = {
   educationLevel: {
     type: String,
     enum : {
-      values: 'S T V N O'.split(' ')
+      values: 'S4 S5 T1 T2 T3 T4 T5 G'.split(' ')
     }
   },
 

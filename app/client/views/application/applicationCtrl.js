@@ -141,15 +141,15 @@ angular.module('reg')
                 }
               ]
             },
-            // educationLevel: {
-            //   identifier: 'educationLevel',
-            //   rules: [
-            //     {
-            //       type: 'empty',
-            //       prompt: 'Please select an education level.'
-            //     }
-            //   ]
-            // },
+            educationLevel: {
+              identifier: 'educationLevel',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please select an education level.'
+                }
+              ]
+            },
             school: {
               identifier: 'school',
               rules: [
