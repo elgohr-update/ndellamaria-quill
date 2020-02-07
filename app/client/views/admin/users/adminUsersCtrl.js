@@ -283,16 +283,35 @@ angular.module('reg')
               },{
                 name: 'Gender',
                 value: user.profile.gender
+              },
+              // {
+              //   name: 'Dietary Restrictions',
+              //   value: user.profile.dietaryRestrictions.join(', ')
+              // },
+              {
+                name: 'Shirt Size',
+                value: user.profile.shirtSize
+              },{
+                name: 'Major',
+                value: user.profile.major
+              },{
+                name: 'Github',
+                value: user.profile.github
+              },{
+                name: 'Twitter',
+                value: user.profile.twitter
               },{
                 name: 'Education Level',
                 value: user.profile.educationLevel
               },{
                 name: 'School',
                 value: user.profile.school
-              },{
-                name: 'Graduation Year',
-                value: user.profile.graduationYear
-              },{
+              },
+              // {
+              //   name: 'Graduation Year',
+              //   value: user.profile.graduationYear
+              // },
+              {
                 name: 'Employment',
                 value: user.profile.employment
               },{
@@ -309,29 +328,14 @@ angular.module('reg')
           },{
             name: 'Confirmation',
             fields: [
-              {
-                name: 'Dietary Restrictions',
-                value: user.confirmation.dietaryRestrictions.join(', ')
+             {
+                name: 'Confirmed',
+                value: user.confirmation.confirm,
+                type:'boolean'
               },{
-                name: 'Shirt Size',
-                value: user.confirmation.shirtSize
-              },{
-                name: 'Major',
-                value: user.confirmation.major
-              },{
-                name: 'Github',
-                value: user.confirmation.github
-              },{
-                name: 'Website',
-                value: user.confirmation.website
-              },{
-                name: 'Needs Hardware',
-                value: user.confirmation.wantsHardware,
-                type: 'boolean'
-              },{
-                name: 'Hardware Requested',
-                value: user.confirmation.hardware
-              }
+                name: 'Confirmation Notes',
+                value: user.confirmation.notes,
+              },
             ]
           },{
             name: 'Hosting',
