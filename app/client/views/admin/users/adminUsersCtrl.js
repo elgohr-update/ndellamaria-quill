@@ -19,9 +19,14 @@ angular.module('reg')
       $('.ui.dimmer').remove();
       // Populate the size of the modal for when it appears, with an arbitrary user.
       $scope.selectedUser = {};
-      $scope.selectedUser.sections = generateSections({status: '', profile: {
-        dietaryRestrictions: []
-      }, confirmation: ''});
+      $scope.selectedUser.sections = generateSections(
+        {
+          status: "", 
+          confirmation: "",
+          profile: {
+            dietaryRestrictions: []
+          }
+      });
 
       function updatePage(data){
         $scope.users = data.users;
@@ -325,74 +330,77 @@ angular.module('reg')
                 value: user.profile.essay
               }
             ]
-          },{
+          },
+          {
             name: 'Confirmation',
             fields: [
              {
                 name: 'Confirmed',
-                value: user.confirmation.confirm,
-                type:'boolean'
-              },{
+                value: user.confirmation ? user.confirmation.confirm : false,
+              },
+              {
                 name: 'Confirmation Notes',
-                value: user.confirmation.notes,
+                value: user.confirmation ? user.confirmation.notes : "",
               },
             ]
-          },{
-            name: 'Hosting',
-            fields: [
-              {
-                name: 'Needs Hosting Friday',
-                value: user.confirmation.hostNeededFri,
-                type: 'boolean'
-              },{
-                name: 'Needs Hosting Saturday',
-                value: user.confirmation.hostNeededSat,
-                type: 'boolean'
-              },{
-                name: 'Gender Neutral',
-                value: user.confirmation.genderNeutral,
-                type: 'boolean'
-              },{
-                name: 'Cat Friendly',
-                value: user.confirmation.catFriendly,
-                type: 'boolean'
-              },{
-                name: 'Smoking Friendly',
-                value: user.confirmation.smokingFriendly,
-                type: 'boolean'
-              },{
-                name: 'Hosting Notes',
-                value: user.confirmation.hostNotes
-              }
-            ]
-          },{
-            name: 'Travel',
-            fields: [
-              {
-                name: 'Needs Reimbursement',
-                value: user.confirmation.needsReimbursement,
-                type: 'boolean'
-              },{
-                name: 'Received Reimbursement',
-                value: user.confirmation.needsReimbursement && user.status.reimbursementGiven
-              },{
-                name: 'Address',
-                value: user.confirmation.address ? [
-                  user.confirmation.address.line1,
-                  user.confirmation.address.line2,
-                  user.confirmation.address.city,
-                  ',',
-                  user.confirmation.address.state,
-                  user.confirmation.address.zip,
-                  ',',
-                  user.confirmation.address.country,
-                ].join(' ') : ''
-              },{
-                name: 'Additional Notes',
-                value: user.confirmation.notes
-              }
-            ]
-          }
+          },
+          // {
+          //   name: 'Hosting',
+          //   fields: [
+          //     {
+          //       name: 'Needs Hosting Friday',
+          //       value: user.confirmation.hostNeededFri,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Needs Hosting Saturday',
+          //       value: user.confirmation.hostNeededSat,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Gender Neutral',
+          //       value: user.confirmation.genderNeutral,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Cat Friendly',
+          //       value: user.confirmation.catFriendly,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Smoking Friendly',
+          //       value: user.confirmation.smokingFriendly,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Hosting Notes',
+          //       value: user.confirmation.hostNotes
+          //     }
+          //   ]
+          // },{
+          //   name: 'Travel',
+          //   fields: [
+          //     {
+          //       name: 'Needs Reimbursement',
+          //       value: user.confirmation.needsReimbursement,
+          //       type: 'boolean'
+          //     },{
+          //       name: 'Received Reimbursement',
+          //       value: user.confirmation.needsReimbursement && user.status.reimbursementGiven
+          //     },{
+          //       name: 'Address',
+          //       value: user.confirmation.address ? [
+          //         user.confirmation.address.line1,
+          //         user.confirmation.address.line2,
+          //         user.confirmation.address.city,
+          //         ',',
+          //         user.confirmation.address.state,
+          //         user.confirmation.address.zip,
+          //         ',',
+          //         user.confirmation.address.country,
+          //       ].join(' ') : ''
+          //     },
+          //     {
+          //       name: 'Additional Notes',
+          //       value: user.confirmation.notes
+          //     }
+          //   ]
+          // }
         ];
       }
 
