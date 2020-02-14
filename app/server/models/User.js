@@ -357,8 +357,7 @@ schema.statics.validateProfile = function(profile, cb){
   return cb(!(
     profile.name.length > 0 &&
     // profile.adult &&
-    profile.school.length > 0 &&
-    ['M', 'F', 'O', 'N'].indexOf(profile.gender) > -1
+    profile.school.length > 0 
     ));
 };
 
