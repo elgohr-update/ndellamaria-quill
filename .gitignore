@@ -9,3 +9,10 @@ app/client/build/
 # macOS
 .DS_Store
 .python-version
+
+.env
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
