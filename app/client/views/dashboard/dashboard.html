@@ -62,20 +62,26 @@
         <div
           ng-class="settings.timeClose"
           ng-if="!dashState('admittedAndCanConfirm') || !dashState('admittedAndCannotConfirm') || !dashState('confirmed') || !dashState('declined')">
+          <p>
           <strong>
             Registration Deadline:
           </strong>
           {{ timeClose }}
+        </p>
         </div>
 
         <div
           ng-class="settings.timeConfirm"
           ng-if="dashState('admittedAndCanConfirm') || dashState('admittedAndCannotConfirm') || dashState('confirmed') || dashState('declined')">
+          <p>
           <strong>
             Confirmation Deadline:
           </strong>
           {{ timeConfirm }}
+        </p>
         </div>
+
+      </br>
 
         <div
           ng-if="dashState('openAndIncomplete')"
