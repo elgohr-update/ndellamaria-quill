@@ -49,6 +49,7 @@ function calculateStats(){
   },
 
     teams: {},
+    teamCount: 0,
     verified: 0,
     submitted: 0,
     admitted: 0,
@@ -175,12 +176,13 @@ function calculateStats(){
         }
 
         // Grab the team name if there is one
-        // if (user.teamCode && user.teamCode.length > 0){
-        //   if (!newStats.teams[user.teamCode]){
-        //     newStats.teams[user.teamCode] = [];
-        //   }
-        //   newStats.teams[user.teamCode].push(user.profile.name);
-        // }
+        if (user.teamCode && user.teamCode.length > 0){
+          if (!newStats.teams[user.teamCode]){
+            newStats.teams[user.teamCode] = [];
+            newStats.teamCount +=1
+          }
+          newStats.teams[user.teamCode].push(user.profile.name);
+        }
 
         // Count shirt sizes
         if (user.confirmation.shirtSize in newStats.shirtSizes){
@@ -202,8 +204,8 @@ function calculateStats(){
         //   += (user.confirmation.hostNeededFri || user.confirmation.hostNeededSat) && user.profile.gender == "N" ? 1 : 0;
 
         // Dietary restrictions
-        if (user.confirmation.dietaryRestrictions){
-          user.confirmation.dietaryRestrictions.forEach(function(restriction){
+        if (user.profile.dietaryRestrictions){
+          user.profile.dietaryRestrictions.forEach(function(restriction){
             if (!newStats.dietaryRestrictions[restriction]){
               newStats.dietaryRestrictions[restriction] = 0;
             }
@@ -240,15 +242,15 @@ function calculateStats(){
         newStats.demo.schools = schools;
 
         // Likewise, transform the teams into an array of objects
-        // var teams = [];
-        // _.keys(newStats.teams)
-        //   .forEach(function(key){
-        //     teams.push({
-        //       name: key,
-        //       users: newStats.teams[key]
-        //     });
-        //   });
-        // newStats.teams = teams;
+        var teams = [];
+        _.keys(newStats.teams)
+          .forEach(function(key){
+            teams.push({
+              name: key,
+              users: newStats.teams[key]
+            });
+          });
+        newStats.teams = teams;
 
         console.log('Stats updated!');
         newStats.lastUpdated = new Date();
