@@ -19,6 +19,31 @@
             </div>
           </div>
 
+           <br>
+          <br>
+
+          <div class="divided title">mentor</div>
+
+
+          <div class="field">
+            <label>
+              Will you be bringing a faculty member from your university as a mentor or advisor for your team? (optional)
+            </label>
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.confirmation.mentor">
+              <label> Yes, a mentor or advisor will be coming with my team to BothoHacks. </label>
+            </div>
+          </div>
+
+          <div
+            class="field"
+            ng-show="user.confirmation.mentor">
+            <label>
+              What is the email address of your mentor or advisor?
+            </label>
+            <input type="text" ng-model="user.confirmation.mentorEmail">
+          </div>
+
           <br>
           <br>
 

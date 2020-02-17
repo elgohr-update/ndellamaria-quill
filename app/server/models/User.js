@@ -121,6 +121,8 @@ var profile = {
 // Only after confirmed
 var confirmation = {
   confirm: Boolean,
+  mentor: Boolean,
+  mentorEmail: String,
   notes: String,
 };
 
