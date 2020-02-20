@@ -185,8 +185,8 @@ function calculateStats(){
         }
 
         // Count shirt sizes
-        if (user.confirmation.shirtSize in newStats.shirtSizes){
-          newStats.shirtSizes[user.confirmation.shirtSize] += 1;
+        if (user.profile.shirtSize in newStats.shirtSizes){
+          newStats.shirtSizes[user.profile.shirtSize] += 1;
         }
 
         // Host needed counts
