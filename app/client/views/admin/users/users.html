@@ -94,12 +94,14 @@
             <th>Name</th>
             <th>E-mail address</th>
             <th>School</th>
-            <th>Grad</th>
+            <th>Age</th>
             <th>V/S/A/C</th>
 <!--             <th>Host</th>
             <th>$</th> -->
-            <th></th>
-            <th></th>
+            <th>Essay</th>
+            <th>Edit</th>
+            <th>Status</th>
+            <th>Additional Comments</th>
           </tr>
         </thead>
         <tbody>
@@ -118,7 +120,7 @@
             <td>{{user.profile.school}}</td>
             <td
               class="collapsing">
-              {{user.profile.graduationYear}}
+              {{user.profile.age}}
             </td>
             <td
               class="collapsing">
@@ -176,7 +178,8 @@
             <!-- Host -->
             <td
               class="collapsing">
-
+              {{user.profile.essay}}
+            </td>
              <!--  <span ng-if="user.status.confirmed">
                 <i
                   ng-if="user.confirmation.hostNeededFri"
@@ -255,6 +258,11 @@
               </button>
 
             </td>
+            <td class="collapsing">
+              {{user.profile.notes}}
+              {{user.confirmation.notes}}
+            <td>
+
           </tr>
         </tbody>
       </table>
