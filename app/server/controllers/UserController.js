@@ -646,7 +646,7 @@ UserController.admitUser = function(id, user, callback){
       }, {
         new: true
       }, (err, user) => {
-        Mailer.sendAcceptanceEmail(user.email, user.profile.name);
+        // Mailer.sendAcceptanceEmail(user.email, user.profile.name);
         callback(err, user);
       }
     );
