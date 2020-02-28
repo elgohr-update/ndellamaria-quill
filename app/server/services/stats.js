@@ -247,7 +247,8 @@ function calculateStats(){
           .forEach(function(key){
             teams.push({
               name: key,
-              users: newStats.teams[key]
+              users: newStats.teams[key],
+              size: newStats.teams[key].length
             });
           });
         newStats.teams = teams;

@@ -310,7 +310,7 @@
         class="item"
         ng-repeat="team in stats.teams | orderBy: 'name'">
         <div class="header">
-          {{team.name}}
+          {{team.name}} ({{team.size}})
         </div>
         {{team.users.join(', ')}}
       </div>
